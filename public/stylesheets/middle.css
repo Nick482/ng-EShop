@@ -1,0 +1,109 @@
+.menu {
+    position: absolute;
+    left: 14%;
+    width: 69%;
+}
+button.category {
+    border: 0;
+    width: 100%;
+    height: 100%;
+    background-color: brown;
+    color: white;
+    border-radius: 6px;
+}
+
+button.category:hover{
+    background-color: bisque;
+}
+
+div.category{
+    border: 0;
+    width: 25%;
+    height: 10%;
+    display: inline-block;
+}
+
+button.sub {
+    border: 0;
+    width: 100%;
+    height: 20%;
+    background-color: coral;
+    color: white;
+    border-radius: 6px;
+}
+
+button.sub:hover{
+    background-color: bisque;
+}
+
+.subs {
+    width: 25%;
+    display: table-cell;
+}
+
+.items {
+    border: 1px solid springgreen;
+    position: absolute;
+    top: 23%;
+    left: 14%;
+    height: 70%;
+    width: 70%;
+    padding: 1%;
+}
+
+.item {
+    height: 23%;
+    width: 15%;
+    display: inline-block;
+    border: 2px solid whitesmoke;
+    margin-right: 10px;
+    margin-bottom: 10px;
+    border-radius: 5%;
+    padding-top: 0;
+    font-size: 70%;
+}
+
+.itemDesc {
+    display: inline-block;
+    position: absolute;
+}
+
+#itemManufacturer {
+    position: relative;
+    top: -70%;
+    left: -14%
+}
+
+#itemPrice {
+    position: relative;
+    top: -60%;
+}
+
+#itemImage {
+    height: 100%;
+    width: 50%;
+}
+
+#viewItem {
+    position: relative;
+    width: 25%;
+    height: 25%;
+    top: -40%;
+    left: 50%;
+}
+
+#addToCart {
+    position: relative;
+    width: 25%;
+    height: 25%;
+    top: -42%;
+    left: 50%;
+}
+
+#viewItem:hover {
+    opacity: .3;
+}
+
+#addToCart:hover {
+    opacity: .3;
+}

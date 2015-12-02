@@ -1,0 +1,15 @@
+.logo {
+    max-height: 0;
+    max-width: 12%;
+}
+img#logo {
+    max-height: 100%;
+    max-width: 100%;
+}
+.search {
+    border: 1px solid crimson;
+    position: absolute;
+    top: 23%;
+    width: 12%;
+    height: 70%;
+}

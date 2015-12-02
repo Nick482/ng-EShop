@@ -1,0 +1,23 @@
+<html>
+  <head>
+      <script src="src/lib/angular/angular.js"></script>
+
+      <script src="src/components/main.js"></script>
+
+      <link type="text/css" rel="stylesheet" href="stylesheets/left.css">
+      <link type="text/css" rel="stylesheet" href="stylesheets/middle.css">
+      <link type="text/css" rel="stylesheet" href="stylesheets/right.css">
+    <title><%=title%></title>
+  </head>
+  <body ng-app="myApp" ng-controller="main">
+    <div ng-include="'src/components/leftBar/logo.htm'"></div>
+    <div ng-include="'src/components/leftBar/search.htm'"></div>
+    <div ng-include="'src/components/middle/menu.htm'"></div>
+    <div ng-include="'src/components/middle/items.htm'"></div>
+
+	<script src="src/components/leftBar/controller/logo.js"></script>
+    <script src="src/components/leftBar/controller/search.js"></script>
+    <script src="src/components/middle/controller/menu.js"></script>
+    <script src="src/components/middle/controller/items.js"></script>
+  </body>
+</html>

@@ -1,0 +1,10 @@
+<div ng-controller="items" class="items">
+    <div class="item" ng-repeat="item in items">
+    <img src="{{item.image}}" id="itemImage">
+    <p class="itemDesc" id="itemName">{{item.name | uppercase}}</p>
+    <p class="itemDesc" id="itemPrice">{{"$" + item.price}}</p>
+    <p class="itemDesc" id="itemManufacturer">{{item.maker | uppercase}}</p>
+        <img class="itemDesc" id="viewItem" src="images/eye.png" ng-click="viewItem()">
+        <img class="itemDesc" id="addToCart" src="images/add.png" ng-click="addToCart()">
+    </div>
+</div>
