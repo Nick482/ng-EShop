@@ -9,10 +9,15 @@ router.get('/', function(req, res) {
 });
 
 router.post('/search', function(req, res){
-    Item.findAll({where: ["name like ?", '%' + req.body.name + '%']}).then(function(item){
-        res.status(256).send(item)
-    });
-
+    console.log(req.body);
+    Item.findAll({where: Sequelize.or({name: {ilike : '%' + req.body.name + '%'}}, {maker: {ilike: '%' +req.body.name + '%'}},
+                {group: {ilike: '%' + req.body.name + '%'}}, {subgroup: {ilike: '%' + req.body.name + '%'}})}).then(function (items) {
+        if (items) {
+            console.log(items);
+            res.send(items);
+        }
+        else { console.log("not found")}
+    })
 });
 
 router.post('/search/subCat', function(req, res){

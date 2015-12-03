@@ -1,4 +1,4 @@
-angular.module('myApp', ['logo', 'search', 'menu', 'items'])
+angular.module('myApp', ['logo', 'filters', 'menu', 'items'])
     .service('variableBuffer', function ($http) {
 
         var menuList = {
@@ -22,13 +22,27 @@ angular.module('myApp', ['logo', 'search', 'menu', 'items'])
         };
     })
 .controller('main', function($scope, $http) {
+        $scope.subCategory = "";
+        $scope.filteredItems = [];
+
     $scope.$on('subSearch', function(subSearch, data){
-        console.log(data);
+        $scope.subCategory = data;
     $http.post('/search/subCat', {"subCond": data}).then(
         function(data){
-            $scope.$broadcast('gotResults', data)
+            $scope.$broadcast('gotResults', data);
+            $scope.filteredItems = data;
         }
     )
+    });
+    $scope.$on('genSearch', function(genSearch, data){
+        $http.post('/search', {name: data}).then(
+            function(data){
+                $scope.$broadcast('gotResults', data);
+                $scope.filteredItems = data;
+            }
+        )
     })
+
+
 }
 );

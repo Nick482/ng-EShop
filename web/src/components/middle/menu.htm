@@ -1,8 +1,10 @@
 <div ng-controller="menu" class="menu">
-    <div class="category" ng-repeat="category in variableBuffer.getCategories()">
-        <button class="category" ng-click="catSearch(category)">{{category | uppercase}}</button>
+    <div ng-mouseleave="setConditions()" class="category" ng-repeat="category in variableBuffer.getCategories()">
+        <button class="category" ng-click="toggleSubs(category)">{{category | uppercase}}</button>
+            <button ng-show="showConditions[category]" ng-click="subSearch(sub); setConditions()" ng-repeat="sub in list[category]" class="sub">{{sub | uppercase}}</button>
     </div>
-    <div class="subs" ng-repeat="category in variableBuffer.getMenuList()">
-        <button ng-click="subSearch(sub)" ng-repeat="sub in category" class="sub">{{sub | uppercase}}</button>
-    </div>
+</div>
+<div ng-controller="menu" id="genSearch">
+    <input ng-model="searchString" type="text" id="searchInput" placeholder="Search all categories...">
+    <button id="searchButton" ng-click="genSearch()">Search!</button>
 </div>
