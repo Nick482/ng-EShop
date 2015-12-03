@@ -6,5 +6,5 @@
 </div>
 <div ng-controller="menu" id="genSearch">
     <input ng-model="searchString" type="text" id="searchInput" placeholder="Search all categories...">
-    <button id="searchButton" ng-click="genSearch()">Search!</button>
+    <button id="searchButton" ng-click="genSearch()">{{"Search!" | uppercase}}</button>
 </div>

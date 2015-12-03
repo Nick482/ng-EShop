@@ -13,7 +13,6 @@ router.post('/search', function(req, res){
     Item.findAll({where: Sequelize.or({name: {ilike : '%' + req.body.name + '%'}}, {maker: {ilike: '%' +req.body.name + '%'}},
                 {group: {ilike: '%' + req.body.name + '%'}}, {subgroup: {ilike: '%' + req.body.name + '%'}})}).then(function (items) {
         if (items) {
-            console.log(items);
             res.send(items);
         }
         else { console.log("not found")}

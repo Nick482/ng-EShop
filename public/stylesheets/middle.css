@@ -66,6 +66,11 @@ button.sub:hover{
     height: 70%;
     border: 0;
     border-radius: 5%;
+    background-color: brown;
+}
+
+#searchButton:hover {
+    background-color: bisque;
 }
 
 .items {
