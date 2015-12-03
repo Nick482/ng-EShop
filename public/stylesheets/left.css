@@ -6,7 +6,7 @@ img#logo {
     max-height: 100%;
     max-width: 100%;
 }
-.search {
+.filters {
     border: 1px solid crimson;
     position: absolute;
     top: 23%;

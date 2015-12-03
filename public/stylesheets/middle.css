@@ -1,8 +1,11 @@
 .menu {
+    z-index: 1;
     position: absolute;
     left: 14%;
     width: 69%;
+    display: inline-flex
 }
+
 button.category {
     border: 0;
     width: 100%;
@@ -39,6 +42,30 @@ button.sub:hover{
 .subs {
     width: 25%;
     display: table-cell;
+}
+
+#genSearch {
+    position: absolute;
+    top: 3%;
+    left: 14%;
+    width: 69%;
+    height: 5%;
+    display: inline-flex;
+}
+
+#searchInput {
+    width: 90%;
+    height: 70%;
+    border-radius: 7px;
+    border: 1px solid brown;
+    font-size: 125%;
+}
+
+#searchButton {
+    width: 10%;
+    height: 70%;
+    border: 0;
+    border-radius: 5%;
 }
 
 .items {
@@ -96,7 +123,7 @@ button.sub:hover{
     position: relative;
     width: 25%;
     height: 25%;
-    top: -42%;
+    top: -41%;
     left: 50%;
 }
 
