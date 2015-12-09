@@ -1,4 +1,4 @@
-angular.module('myApp', ['logo', 'filters', 'menu', 'items'])
+angular.module('myApp', ['ui.bootstrap', 'logo', 'filters', 'menu', 'items', 'bottom'])
     .service('variableBuffer', function ($http) {
 
         var menuList = {

@@ -4,7 +4,7 @@
             <button ng-show="showConditions[category]" ng-click="subSearch(sub); setConditions()" ng-repeat="sub in list[category]" class="sub">{{sub | uppercase}}</button>
     </div>
 </div>
-<div ng-controller="menu" id="genSearch">
+<div ng-controller="menu" id="genSearch" class="genSearch">
     <input ng-model="searchString" type="text" id="searchInput" placeholder="Search all categories...">
     <button id="searchButton" ng-click="genSearch()">{{"Search!" | uppercase}}</button>
 </div>
