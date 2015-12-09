@@ -6,10 +6,65 @@ img#logo {
     max-height: 100%;
     max-width: 100%;
 }
+
 .filters {
-    border: 1px solid crimson;
     position: absolute;
     top: 23%;
     width: 12%;
     height: 70%;
+}
+
+.filters {
+    background: linear-gradient(lightsalmon, brown);
+}
+
+#filterHeader {
+    background: linear-gradient(silver, white);
+    margin: 0;
+    padding-top: 5%;
+    padding-bottom: 5%;
+    font-size: 73%;
+    font-family: sans-serif;
+    padding-left: 10%;
+}
+
+.filterName {
+    text-align: center;
+    font-size: 70%;
+    background: silver;
+    margin: 0;
+}
+
+.checkboxes {
+    background: #333333;
+    border-bottom: 1px solid #262626;
+    border-top: 1px solid #303030;
+    color: bisque;
+}
+
+input[type="checkbox"] {
+    display:none;
+}
+
+input[type="checkbox"] + label span {
+    display:inline-block;
+    width:16px;
+    height:16px;
+    margin:-1px 4px 0 0;
+    vertical-align:middle;
+    background:url("../images/ui-checkbox.png") left top no-repeat;
+    cursor:pointer;
+}
+
+input[type="checkbox"]:checked + label span {
+    background:url("../images/ui-checkbox.png") left -16px top no-repeat;
+}
+
+.bottom {
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    height: 7%;
+    width: 100%;
+    background-color: brown;
 }
