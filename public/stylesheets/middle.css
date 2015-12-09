@@ -1,9 +1,10 @@
 .menu {
     z-index: 1;
     position: absolute;
+    top: 10%;
     left: 14%;
     width: 69%;
-    display: inline-flex
+    display: inline-flex;
 }
 
 button.category {
@@ -45,28 +46,35 @@ button.sub:hover{
 }
 
 #genSearch {
-    position: absolute;
-    top: 3%;
+    position: relative;
+    top: 0;
     left: 14%;
     width: 69%;
-    height: 5%;
+    height: 15%;
     display: inline-flex;
 }
 
 #searchInput {
-    width: 90%;
-    height: 70%;
+    position: absolute;
+    top: 26%;
+    left: 0;
+    width: 89%;
+    height: 25%;
     border-radius: 7px;
     border: 1px solid brown;
     font-size: 125%;
 }
 
 #searchButton {
+    position: absolute;
+    top: 26%;
+    left: 90%;
     width: 10%;
-    height: 70%;
+    height: 25%;
     border: 0;
-    border-radius: 5%;
+    border-radius: 9px;
     background-color: brown;
+    color: #ffffff;
 }
 
 #searchButton:hover {
@@ -74,16 +82,16 @@ button.sub:hover{
 }
 
 .items {
-    border: 1px solid springgreen;
-    position: absolute;
-    top: 23%;
+    position: relative;
+    top: 9%;
     left: 14%;
-    height: 70%;
+    height: 88.5%;
     width: 70%;
     padding: 1%;
 }
 
 .item {
+    position: relative;
     height: 23%;
     width: 15%;
     display: inline-block;
@@ -101,14 +109,18 @@ button.sub:hover{
 }
 
 #itemManufacturer {
-    position: relative;
-    top: -70%;
-    left: -14%
+    top: 10%;
+    left: 55%
+}
+
+#itemName {
+    position: absolute;
+    left: 55%;
 }
 
 #itemPrice {
-    position: relative;
-    top: -60%;
+    top: 25%;
+    left: 55%;
 }
 
 #itemImage {
@@ -117,19 +129,19 @@ button.sub:hover{
 }
 
 #viewItem {
-    position: relative;
+    position: absolute;
     width: 25%;
     height: 25%;
-    top: -40%;
+    top: 70%;
     left: 50%;
 }
 
 #addToCart {
-    position: relative;
+    position: absolute;
     width: 25%;
     height: 25%;
-    top: -41%;
-    left: 50%;
+    top: 70%;
+    left: 75%;
 }
 
 #viewItem:hover {
@@ -138,4 +150,10 @@ button.sub:hover{
 
 #addToCart:hover {
     opacity: .3;
+}
+
+.pagination {
+    position: absolute;
+    bottom: 0;
+    left: 36%;
 }

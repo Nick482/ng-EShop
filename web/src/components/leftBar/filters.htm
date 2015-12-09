@@ -1,3 +1,10 @@
 <div ng-controller="filters" class="filters">
-
+    <p id="filterHeader">{{"Filter search results by:" | uppercase}}</p>
+    <div class="filterGroup" ng-repeat="(filterTypeName, filterType) in filterTypes">
+        <p class="filterName">{{filterTypeName + ":" | uppercase}}</p>
+        <div class="checkboxes" ng-repeat="filter in filterType">
+            <input type="checkbox" class="filterCheckbox" id="{{'cb' + filter}}">
+            <label for="{{'cb' + filter}}"><span></span>{{filter | uppercase}}</label>
+        </div>
+    </div>
 </div>
