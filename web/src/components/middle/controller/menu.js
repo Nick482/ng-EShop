@@ -2,7 +2,7 @@ angular.module('menu', []).controller('menu', function($scope, variableBuffer){
     $scope.categs = variableBuffer.getCategories();
     $scope.showConditions = {};
     $scope.setConditions = function(){
-        for (i = 0; i < $scope.categs.length; i++){
+        for (var i = 0; i < $scope.categs.length; i++){
             $scope.showConditions[$scope.categs[i]] = false;
         }
     };

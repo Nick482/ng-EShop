@@ -2,7 +2,7 @@ angular.module('filters', []).controller('filters', function($scope, variableBuf
     $scope.excludedFilters = ["id", "name", "group", "subgroup", "image", "code", "remaining", "createdAt", "updatedAt"];
     $scope.showPrice = false;
 
-    $scope.$on('gotResults', function(gotResults, data){
+    $scope.$on('setFilters', function(setFilters, data){
         $scope.filterTypes = {};
         var received = data.data,
             priceTemp = [];
