@@ -34,6 +34,9 @@ angular.module('myApp', ['ui.bootstrap', 'logo', 'filters', 'menu', 'items', 'bo
         }
     )
     });
+    $scope.$on('filtered', function(filtered, data){
+        $scope.$broadcast('gotResults', {data: data})
+    });
     $scope.$on('genSearch', function(genSearch, data){
         $http.post('/search', {name: data}).then(
             function(data){

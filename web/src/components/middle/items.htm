@@ -7,5 +7,5 @@
         <img class="itemButtons" id="viewItem" src="images/eye.png" ng-click="viewItem()">
         <img class="itemButtons" id="addToCart" src="images/add.png" ng-click="addToCart()">
     </div>
-    <uib-pagination total-items="totalItems" ng-model="currentPage" items-per-page="numPerPage" max-size="maxSize" boundary-links="true"></uib-pagination>
+    <uib-pagination ng-show="showPages" total-items="totalItems" ng-model="currentPage" items-per-page="numPerPage" max-size="maxSize" boundary-links="true"></uib-pagination>
 </div>

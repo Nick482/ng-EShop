@@ -1,6 +1,8 @@
 angular.module('items', ['ui.bootstrap']).controller('items', function($scope){
+    $scope.showPages = false;
 
     $scope.$on('gotResults', function(gotResults, data){
+        $scope.showPages = true;
         $scope.currentPage = 1;
         $scope.numPerPage = 18;
         $scope.maxSize = 5;

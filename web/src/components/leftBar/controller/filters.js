@@ -1,9 +1,12 @@
 angular.module('filters', []).controller('filters', function($scope, variableBuffer){
     $scope.excludedFilters = ["id", "name", "group", "subgroup", "image", "code", "remaining", "createdAt", "updatedAt"];
-    $scope.filterTypes = {};
+    $scope.showPrice = false;
+
     $scope.$on('gotResults', function(gotResults, data){
         $scope.filterTypes = {};
-        var received = data.data;
+        var received = data.data,
+            priceTemp = [];
+        $scope.received = received;
         console.log(received);
         var tempArray = [];
         for (var i = 0; i < received.length; i++) {
@@ -31,5 +34,26 @@ angular.module('filters', []).controller('filters', function($scope, variableBuf
             }
         }
     $scope.filterTypes.price.sort();
-    })
+    priceTemp = [$scope.filterTypes.price[0], $scope.filterTypes.price[$scope.filterTypes.price.length - 1]];
+    delete $scope.filterTypes.price;
+    $scope.priceFilter = priceTemp;
+    $scope.showPrice = true;
+    });
+    $scope.funPrice1 = function(){
+        if (!$scope.price2) {return $scope.price1}
+        return Math.min($scope.price1, $scope.price2) || 0;
+    };
+    $scope.funPrice2 = function(){
+        if (!$scope.price1) {return $scope.price2}
+        return Math.max($scope.price1, $scope.price2) || 0;
+    };
+    $scope.filterByPrice = function(from, to){
+        var filteredItems = [];
+        for (var i = 0; i < $scope.received.length; i++) {
+            if($scope.received[i].price >= from && $scope.received[i].price <= to){
+                filteredItems.push($scope.received[i])
+            }
+        }
+        $scope.$emit('filtered', filteredItems);
+    }
 });
