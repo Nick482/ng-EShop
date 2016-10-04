@@ -6,23 +6,14 @@ var Product = models.Product;
 function add(req, res, next){
 	var subcategory = new Subcategory(req.body);
 
-	subcategory.save(function(err, subcategory){
-		if(err){
-			return next(err);
-		}
-		Category.findById(subcategory.category, function(err, category){
-			if(err) {
+	Category.findByIdAndUpdate(subcategory.category, {$push: {'subcategories': subcategory._id}}, function(err, category){
+		subcategory.save(function(err, subcategory){
+			if(err){
 				return next(err);
 			}
-			category.subcategories.push(subcategory._id);
-			category.save(function(err){
-				if(err) {
-					return next(err);
-				}
-				res.status(201).send(subcategory);
-			})
-		})
-	})
+			res.status(201).send(subcategory);
+		});
+	});
 }
 
 function update(req, res, next){

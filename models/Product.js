@@ -15,6 +15,14 @@ var productSchema = new mongoose.Schema({
 	characterictics: {
 		type: mongoose.Schema.Types.Mixed
 	},
+	quantity: {
+		type: Number,
+		default: 0
+	},
+	price: {
+		type: Number,
+		required: true
+	}.
 	category: {
 		type: mongoose.Schema.Types.ObjectId,
 		required: true,

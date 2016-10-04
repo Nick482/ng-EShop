@@ -5,21 +5,15 @@ var Subcategory = models.Subcategory;
 function add(req, res, next) {
 	var product = new Product(req.body);
 
-	product.save(function(err, product){
+	Subcategory.findByIdAndUpdate(product.subcategory, {$push: {'products': product._id}}, function(err, subcategory){
 		if(err) {
 			return next(err);
 		}
-		Subcategory.findById(product.subcategory, function(err, subcategory){
+		product.save(function(err, product){
 			if(err) {
 				return next(err);
 			}
-			subcategory.products.push(product._id);
-			subcategory.save(function(err){
-				if(err) {
-					return next(err);
-				}
-				res.status(201).send(product);
-			});
+			res.status(201).send(product);
 		});
 	});
 }
