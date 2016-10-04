@@ -1,7 +1,8 @@
 var models = require('../models');
+var Admin = models.Admin;
 
 function add(req, res, next) {
-	var admin = new models.Admin(req.body);
+	var admin = new Admin(req.body);
 	admin.save(function(err, admin){
 		if(err){
 			return next(err)
@@ -11,7 +12,7 @@ function add(req, res, next) {
 }
 
 function update(req, res, next) {
-	models.Admin.findByIdAndUpdate(req.body.id, function(err, admin){
+	Admin.findByIdAndUpdate(req.body._id, function(err, admin){
 		if(err){
 			return next(err)
 		}
@@ -20,7 +21,7 @@ function update(req, res, next) {
 }
 
 function getAll(req, res, next) {
-	models.Admin.find().exec(function(err, admins){
+	Admin.find().exec(function(err, admins){
 		if(err) {
 			return next(err)
 		}
@@ -29,7 +30,7 @@ function getAll(req, res, next) {
 }
 
 function remove(req, res, next) {
-	models.Admin.findByIdAndRemove(req.params.id, function(err, admin){
+	Admin.findByIdAndRemove(req.params.id, function(err, admin){
 		if(err) {
 			return next(err);
 		}
