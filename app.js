@@ -6,7 +6,7 @@ var cookieParser = require('cookie-parser');
 var bodyParser = require('body-parser');
 var session = require('express-session');
 var routes = require('./routes/index');
-var passport = require('./helpers/passportConfig');
+// var passport = require('./helpers/passportConfig');
 var app = express();
 
 
