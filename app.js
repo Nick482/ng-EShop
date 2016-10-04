@@ -23,13 +23,13 @@ app.use(bodyParser.urlencoded({ extended: true }));
 app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'dist')));
 app.use(express.static(path.join(__dirname, 'bower_components')));
-app.use(session({
-	secret: 'keyboard cat',
-	resave: true,
-	saveUninitialized: false
-}));
-app.use(passport.initialize());
-app.use(passport.session());
+// app.use(session({
+// 	secret: 'keyboard cat',
+// 	resave: true,
+// 	saveUninitialized: false
+// }));
+// app.use(passport.initialize());
+// app.use(passport.session());
 app.use('/', routes);
 
 module.exports = app;

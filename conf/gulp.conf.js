@@ -51,6 +51,7 @@ exports.errorHandler = function (title) {
  *  to inject css preprocessor deps and js files in karma
  */
 exports.wiredep = {
+  ignorePath: '/bower_components',
   exclude: [/\/bootstrap\.js$/, /\/bootstrap-sass\/.*\.js/, /\/bootstrap\.css/],
   directory: 'bower_components'
 };

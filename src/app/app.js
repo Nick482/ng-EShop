@@ -1,2 +1,5 @@
-angular
-  .module('app', ['ui.router', 'ngMaterial', 'ngMessages']);
+(function(){
+
+	angular
+  	.module('app', ['ui.router', 'ngMaterial', 'ngMessages']);
+})();

@@ -13,10 +13,10 @@ var admin = require('../handlers/admin');
 // require('../helpers/dbConnection');
 
 // /* GET home page. */
-// router.get('/', function(req, res, next) {
-//   res.render('app/app', {title: 'Express'});
-//   next();
-// });
+router.get('/', function(req, res, next) {
+  res.render('app/app', {title: 'Express'});
+  next();
+});
 
 // router.use('/users', users);
 
