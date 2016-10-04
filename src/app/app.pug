@@ -1,0 +1,31 @@
+doctype html
+head
+  base(href='/')
+  meta(charset='utf-8')
+  title Events
+  meta(name='description' content='')
+  meta(name='viewport' content='width=device-width')
+  link(href='https://fonts.googleapis.com/icon?family=Material+Icons' rel='stylesheet')
+  // build:css({.tmp,src}) styles/vendor.css
+  // bower:css
+  // run `gulp inject` to automatically populate bower styles dependencies
+  // endbower
+  // endbuild
+  // build:css({.tmp,src}) styles/app.css
+  link(rel='stylesheet' href='app/app.css')
+  // endbuild
+body(ng-app="app")
+  .container
+    menu(flex='100')
+    ui-view
+    footer(flex='100')
+// build:js({.tmp,src}) scripts/vendor.js
+// bower:js
+// run `gulp inject` to automatically populate bower script dependencies
+// endbower
+// endbuild
+// build:js({.tmp,src}) scripts/app.js
+// inject:js
+// js files will be automatically insert here
+// endinject
+// endbuild
