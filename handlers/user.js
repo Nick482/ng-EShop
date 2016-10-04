@@ -31,6 +31,15 @@ function get(req, res, next) {
 	})
 }
 
+function getAll(req, res, next) {
+	User.find({}, function(err, users){
+		if(err) {
+			return next(err);
+		}
+		res.status(200).send(users);
+	});
+}
+
 function getOrders(req, res, next){
 	Order.find({user: req.params.id}).populate('products').exec(function(err, orders){
 		if(err) {
@@ -53,6 +62,7 @@ module.exports = {
 	add: add,
 	update: update,
 	get: get,
+	getAll: getAll,
 	getOrders: getOrders,
 	remove: remove
 }

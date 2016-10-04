@@ -19,23 +19,40 @@ function add(req, res, next) {
 					return next(err);
 				}
 				res.status(201).send(order);
-			})
+			});
 		});
 	});
 }
 
-function (req, res, next) {
-
+function update(req, res, next) {
+	Order.findByIdAndUpdate(req.body._id, req.body, function(err, order){
+		if(err) {
+			return next(err);
+		}
+		res.status(200).send(order);
+	});
 }
 
-function (req, res, next) {
-
+function getOne(req, res, next) {
+	Order.findById(req.params.id, function(err, order){
+		if(err) {
+			return next(err);
+		}
+		res.status(200).send(order);
+	});
 }
 
-function (req, res, next) {
-
+function remove (req, res, next) {
+	Order.findByIdAndRemove(req.params.id, function(err) {
+		if(err) {
+			return next(err);
+		}
+	});
 }
 
-function (req, res, next) {
-
+module.exports = {
+	add: add,
+	update: update,
+	getOne: getOne,
+	remove: remove
 }

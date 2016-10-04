@@ -14,6 +14,10 @@ var orderSchema = new mongoose.Schema({
 		type: mongoose.Schema.Types.ObjectId,
 		required: true,
 		ref: 'User'
+	},
+	total: {
+		type: Number,
+		required: true
 	}
 });
 
