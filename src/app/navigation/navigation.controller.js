@@ -10,5 +10,7 @@
 			console.log(categories);
 			vm.categories = categories;
 		});
+		vm.openMenu = navigationService.openMenu;
+		vm.goToCategory = navigationService.goToCategory;
 	}
 })();

@@ -4,12 +4,15 @@
 	.factory('navigationService', navigationService);
 
 	/** @ngInject */
-	function navigationService($http, $q) {
+	function navigationService($http, $q, $state, $stateParams) {
 		return {
-			getCategories: getCategories
+			getCategories: getCategories,
+			openMenu: openMenu,
+			goToCategory: goToCategory,
+			goToSubcategory: goToSubcategory
 		}
 
-		function getCategories(){
+		function getCategories() {
 			var deferred = $q.defer();
 
 			$http({
@@ -23,6 +26,18 @@
 			});
 
 			return deferred.promise;
+		}
+
+		function openMenu($mdOpenMenu, ev) {
+			$mdOpenMenu(ev);
+		}
+
+		function goToCategory(dest) {
+			$state.go('category', {categoryID: dest});
+		}
+
+		function goToSubcategory(dest) {
+			$state.go('subcategory', {subcategoryID: dest});
 		}
 	}
 })();
