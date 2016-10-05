@@ -30,7 +30,7 @@ function update(req, res, next) {
 function get(req, res, next) {
 	var params = req.params;
 
-	Product.find({subcategory: params.id}).skip(params.offset).limit(params.limit).exec(function(err, products){
+	Product.find({subcategory: params.id}).skip((params.page - 1) * params.offset).limit(params.offset).exec(function(err, products){
 		if(err){
 			return next(err);
 		}
@@ -56,10 +56,21 @@ function remove(req, res, next) {
 	})
 }
 
+function search(req, res, next){
+	Product.find({title: new RegExp(req.params.text, "i")}).skip((req.params.page - 1) * req.params.offset).limit(req.params.offset)
+	.exec(function(err, products) {
+  		if(err){
+    		return next(err);
+  		}
+  		res.status(200).send(products);
+	});
+}
+
 module.exports = {
 	add: add,
 	update: update,
 	get: get,
 	getOne: getOne,
-	remove: remove
+	remove: remove,
+	search: search
 }

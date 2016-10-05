@@ -7,4 +7,4 @@
 	function homeCtrl(){
 		var vm = this;
 	}
-})
+})();

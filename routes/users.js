@@ -1,17 +1,18 @@
 var express = require('express');
 var router = express.Router();
-// var userHandler = require('../handlers/users');
+var userHandler = require('../handlers/user');
 // var mailSender = require('../helpers/mailSender');
 
-// /* GET users listing. */
-// router.get('/', userHandler.getAll);
+router.get('/', userHandler.getAll);
 
-// router.get('/:id', userHandler.getOne);
+router.get('/:id', userHandler.getOne);
 
-// router.post('/', userHandler.add, mailSender.send);
+router.get('/:id/orders', userHandler.getOrders);
 
-// router.put('/', userHandler.update);
+router.post('/', userHandler.add);
 
-// router.delete('/:id', userHandler.remove);
+router.put('/', userHandler.update);
+
+router.delete('/:id', userHandler.remove);
 
 module.exports = router;

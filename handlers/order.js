@@ -1,4 +1,4 @@
-var models = require('models');
+var models = require('../models');
 var Order = models.Order;
 var User = models.User;
 var Product = models.Product;

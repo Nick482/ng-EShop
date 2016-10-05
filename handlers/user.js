@@ -22,7 +22,7 @@ function update(req, res, next) {
 	});
 }
 
-function get(req, res, next) {
+function getOne(req, res, next) {
 	User.findById(req.params.id, function(err, user){
 		if(err) {
 			return next(err)
@@ -61,7 +61,7 @@ function remove(req, res, next) {
 module.exports = {
 	add: add,
 	update: update,
-	get: get,
+	getOne: getOne,
 	getAll: getAll,
 	getOrders: getOrders,
 	remove: remove

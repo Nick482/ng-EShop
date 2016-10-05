@@ -17,7 +17,10 @@ head
 body(ng-app="app")
   .container
     menu(flex='100')
-    ui-view
+    .content(layout='row')
+      navigation
+      ui-view
+      filters
     footer(flex='100')
 // build:js({.tmp,src}) scripts/vendor.js
 // bower:js

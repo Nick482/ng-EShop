@@ -1,6 +1,6 @@
 var express = require('express');
 var router = express.Router();
-// var adminHandler = require('../handlers/admin');
+var adminHandler = require('../handlers/admin');
 // var passport = require('../helpers/passportConfig');
 // var authentication = require('../helpers/authentication');
 
@@ -10,22 +10,22 @@ var router = express.Router();
 // 	res.status(200).send('Verified');
 // });
 
-// router.get('/', function(req, res, next){
-// 	res.render('admin/admin', {title: "Express"});
-// });
+router.get('/', function(req, res, next){
+	res.render('admin/admin', {title: "Express"});
+});
 
 // router.post('/login', 
 // 	passport.authenticate('local', {successRedirect: '/admin'})
 // );
 
-// router.post('/', adminHandler.add);
+router.post('/', adminHandler.add);
 
-// router.put('/', adminHandler.update);
+router.put('/', adminHandler.update);
 
-// router.delete('/:id', adminHandler.remove);
+router.delete('/:id', adminHandler.remove);
 
-// router.use('/', function(req, res, next){
-// 	res.render('admin/admin', {title: "Express"});
-// });
+router.use('/', function(req, res, next){
+	res.render('admin/admin', {title: "Express"});
+});
 
 module.exports = router;
