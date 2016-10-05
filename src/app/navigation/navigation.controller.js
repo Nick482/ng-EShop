@@ -7,10 +7,10 @@
 	function navigationCtrl(navigationService) {
 		var vm = this;
 		navigationService.getCategories().then(function(categories){
-			console.log(categories);
 			vm.categories = categories;
 		});
 		vm.openMenu = navigationService.openMenu;
 		vm.goToCategory = navigationService.goToCategory;
+		vm.goToSubcategory = navigationService.goToSubcategory;
 	}
 })();
