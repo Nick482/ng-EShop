@@ -9,8 +9,12 @@ var subcategorySchema = new mongoose.Schema({
 		type: mongoose.Schema.Types.ObjectId,
 		required: true,
 		ref: 'Category'
-	}
-})
+	},
+	manufacturers: [{
+		type: mongoose.Schema.Types.ObjectId,
+		ref: 'Manufacturer'
+	}]
+});
 
 var Subcategory = mongoose.model('Subcategory', subcategorySchema);
 

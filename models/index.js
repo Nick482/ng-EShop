@@ -4,6 +4,7 @@ var Category = require('./Category');
 var Subcategory = require('./Subcategory');
 var Product = require('./Product');
 var Order = require('./Order');
+var Manufacturer = require('./Manufacturer');
 
 
 module.exports = {
@@ -12,5 +13,6 @@ module.exports = {
 	Category: Category,
 	Subcategory: Subcategory,
 	Product: Product,
-	Order: Order
+	Order: Order,
+	Manufacturer: Manufacturer
 }

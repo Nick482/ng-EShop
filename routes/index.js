@@ -6,12 +6,11 @@ var products = require('./products');
 var categories = require('./categories');
 var subcategories = require('./subcategories');
 var orders = require('./orders');
+var manufacturers = require('./manufacturers');
 // var errorHandler = require('../handlers/error');
-// var path = require('path');
 
 require('../helpers/dbConnection');
 
-// /* GET home page. */
 router.get('/', function(req, res, next) {
   res.render('app/app', {title: 'Express'});
   next();
@@ -28,6 +27,8 @@ router.use('/orders', orders);
 router.use('/categories', categories);
 
 router.use('/subcategories', subcategories);
+
+router.use('/manufacturers', manufacturers);
 
 router.use('/', function(req, res, next) {
   res.render('app/app', {title: 'Express'});

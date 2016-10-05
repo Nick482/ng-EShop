@@ -4,7 +4,10 @@
 	.controller('homeCtrl', homeCtrl);
 
 	/** @ngInject */
-	function homeCtrl(){
+	function homeCtrl(navigationService){
 		var vm = this;
+
+		vm.goToSubcategory = navigationService.goToSubcategory;
+		vm.goToCategory = navigationService.goToSubcategory;
 	}
 })();

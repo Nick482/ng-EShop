@@ -23,7 +23,7 @@ function update(req, res, next) {
 }
 
 function getOne(req, res, next) {
-	Category.FindById(req.params.id).populate('subcategories').exec(function(err, category){
+	Category.findById(req.params.id).populate({path: 'subcategories', populate: {path: 'manufacturers'}}).exec(function(err, category){
 		if(err){
 			return next(err)
 		}

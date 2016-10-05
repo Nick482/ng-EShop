@@ -1,2 +1,8 @@
-.home
-	
+md-card(ng-repeat='category in vm.categories')
+  img.md-card-image(ng-src='{{category.image}}' alt='Category image')
+  md-card-title
+    md-card-title-text
+      span.md-headline(ng-click='vm.goToCategory(category._id)') {{category.title | uppercase}}
+  md-card-content
+  md-card-actions(layout='column' layout-align='start')
+    md-button(ng-repeat='subcategory in category.subcategories' ng-click='vm.goToSubcategory(subcategory._id)') {{subcategory.title}}

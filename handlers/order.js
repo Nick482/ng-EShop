@@ -6,7 +6,7 @@ var Product = models.Product;
 function add(req, res, next) {
 	var order = new Order(req.body);
 
-	User.findByIdAndUpdate(order.user, {$push: {'orders': order._id}}, function(err, user){
+	User.findByIdAndUpdate(order.user, {$push: {'orders': order._id}}, {multi: true}, function(err, user){
 		if(err) {
 			return next(err);
 		}
