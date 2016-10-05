@@ -5,4 +5,4 @@ md-card(ng-repeat='subcategory in vm.subcategories')
       span.md-headline {{subcategory.title | uppercase}}
   md-card-content
   md-card-actions(layout='column' layout-align='start')
-    md-button(ng-repeat='manufacturer in subcategory.manufacturers' ng-click='vm.goToSubcategory(subcategory._id)') {{subcategory.title}}
+    md-button(ng-repeat='manufacturer in subcategory.manufacturers' ng-click='vm.goToSubcategory(subcategory._id, manufacturer._id)') {{manufacturer.title | uppercase}}

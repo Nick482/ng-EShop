@@ -4,13 +4,13 @@
 	.controller('navigationCtrl', navigationCtrl);
 
 	/** @ngInject */
-	function navigationCtrl(navigationService) {
+	function navigationCtrl(navigationService, routingService, httpService) {
 		var vm = this;
-		navigationService.getCategories().then(function(categories){
+		httpService.getCategories().then(function(categories){
 			vm.categories = categories;
 		});
 		vm.openMenu = navigationService.openMenu;
-		vm.goToCategory = navigationService.goToCategory;
-		vm.goToSubcategory = navigationService.goToSubcategory;
+		vm.goToCategory = routingService.goToCategory;
+		vm.goToSubcategory = routingService.goToSubcategory;
 	}
 })();

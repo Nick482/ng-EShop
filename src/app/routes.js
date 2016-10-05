@@ -11,7 +11,12 @@
 	  $stateProvider
 	    .state('home', {
 	      url: '/',
-	      component: 'home'
+	      component: 'home',
+	      resolve: {
+	      	categories: function(httpService){
+	      		return httpService.getCategories();
+	      	}
+	      }
 	    });
 
 	  // $stateProvider
@@ -20,11 +25,16 @@
 	  //     component: 'product'
 	  //   });
 
-	  // $stateProvider
-	  //   .state('category', {
-	  //     url: '/category/{categoryID}',
-	  //     component: 'category'
-	  //   });
+	  $stateProvider
+	    .state('category', {
+	      url: '/category/{categoryID}',
+	      component: 'category',
+	      resolve: {
+	      	subcategories: function(httpService, $stateParams) {
+	      		return httpService.getSubcategories($stateParams.categoryID);
+	      	}
+	      }
+	    });
 
 	  // $stateProvider
 	  //   .state('user', {
