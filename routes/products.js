@@ -3,11 +3,11 @@ var router = express.Router();
 var productHandler = require('../handlers/product');
 
 
-router.get('/search/:text/:page/:offset', productHandler.search);
+router.get('/search/:text/:page/:limit', productHandler.search);
 
 router.get('/:id', productHandler.getOne);
 
-router.get('/page/:page/:offset', productHandler.get);
+router.get('/page/:page/:limit', productHandler.get);
 
 router.post('/', productHandler.add);
 

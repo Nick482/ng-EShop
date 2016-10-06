@@ -30,7 +30,7 @@ function update(req, res, next) {
 function get(req, res, next) {
 	var params = req.params;
 
-	Product.find({subcategory: params.id}).skip((params.page - 1) * params.offset).limit(params.offset).exec(function(err, products){
+	Product.find({subcategory: params.id}).skip((params.page - 1) * params.limit).limit(+params.limit).exec(function(err, products){
 		if(err){
 			return next(err);
 		}
@@ -57,7 +57,11 @@ function remove(req, res, next) {
 }
 
 function search(req, res, next){
-	Product.find({title: new RegExp(req.params.text, "i")}).skip((req.params.page - 1) * req.params.offset).limit(req.params.offset)
+	req.params.text = req.params.text.replace(/_/, ' ');
+	Product.find({title: new RegExp(req.params.text, "i")})
+	.skip((req.params.page - 1) * req.params.limit)
+	.limit(+req.params.limit)
+	.populate('category subcategory', 'title')
 	.exec(function(err, products) {
   		if(err){
     		return next(err);

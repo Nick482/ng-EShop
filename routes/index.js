@@ -7,6 +7,7 @@ var categories = require('./categories');
 var subcategories = require('./subcategories');
 var orders = require('./orders');
 var manufacturers = require('./manufacturers');
+var autocompleteHandler = require('../handlers/autocomplete');
 // var errorHandler = require('../handlers/error');
 
 require('../helpers/dbConnection');
@@ -15,6 +16,8 @@ router.get('/', function(req, res, next) {
   res.render('app/app', {title: 'Express'});
   next();
 });
+
+router.get('/autocomplete/:text', autocompleteHandler.search);
 
 router.use('/users', users);
 

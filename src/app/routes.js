@@ -19,11 +19,16 @@
 	      }
 	    });
 
-	  // $stateProvider
-	  //   .state('product', {
-	  //     url: '/product/{productID}',
-	  //     component: 'product'
-	  //   });
+	  $stateProvider
+	    .state('product', {
+	      url: '/product/{productID}',
+	      component: 'product',
+	      resolve: {
+	      	product: function(httpService, $stateParams){
+	      		return httpService.getProduct($stateParams.productID);
+	      	}
+	      }
+	    });
 
 	  $stateProvider
 	    .state('category', {
@@ -52,14 +57,20 @@
 	  //     }
 	  //   });
 
-	  // $stateProvider
-	  //   .state('search', {
-	  //     url: '/search',
-	  //     component: 'search',
-	  //     params: {
-	  //     	page: 1,
-	  //     	limit: 15
-	  //     }
-	  //   });
+	  $stateProvider
+	    .state('search', {
+	      url: '/search/',
+	      component: 'search',
+	      params: {
+	      	text: '',
+	      	page: 1,
+	      	limit: 15
+	      },
+	      resolve: {
+	      	results: function(httpService, $stateParams){
+	         	return httpService.getSearchResults($stateParams.text, $stateParams.page, $stateParams.limit)
+	  		}
+	      }
+	    });
 	}
 })();
