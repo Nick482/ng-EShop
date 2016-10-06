@@ -1,5 +1,5 @@
 md-card.category-card(ng-repeat='category in vm.categories')
-  img.md-card-image(ng-src='{{category.image}}' alt='Category image')
+  img.md-card-image(ng-src='{{category.image || "app/common/img/stock.png"}}' alt='Category image')
   md-card-title
     md-card-title-text
       span.md-headline(ng-click='vm.goToCategory(category._id)') {{category.title | uppercase}}
