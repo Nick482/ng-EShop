@@ -8,8 +8,8 @@
 		var vm = this;
 
 		vm.viewProduct = routingService.goToProduct;
-		vm.goToCategory = function(id){
-			console.log(id);
-		}
+		vm.goToCategory = routingService.goToCategory;
+		vm.goToSubcategory = routingService.goToSubcategory;
+		// vm.addToCart = userService.addToCart;
 	}
 })();

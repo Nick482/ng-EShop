@@ -11,7 +11,7 @@
         .md-media-md.card-media
           img(ng-src='{{result.images[0] || "app/common/img/stock.png"}}')
     md-card-actions.card-buttons(layout='row' layout-align='center center')
-      md-button(ng-click='vm.addToCart(item)')
+      md-button(ng-click='vm.addToCart(result)')
         i.material-icons add_shopping_cart
-      md-button(ng-click='vm.viewProduct(item._id)')
+      md-button(ng-click='vm.viewProduct(result._id)')
         i.material-icons open_in_browser

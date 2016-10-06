@@ -21,7 +21,8 @@
 		}
 
 		function goToSearch(text) {
-			$state.go('search', {text: text});
+			var searchText = text.replace(/ /g, '_');
+			$state.go('search', {text: searchText});
 		}
 
 		function goToProduct(id){

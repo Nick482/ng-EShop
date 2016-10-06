@@ -77,8 +77,7 @@
 
 		function getSearchResults(text, page, limit){
 			var deferred = $q.defer();
-			var searchText = text.replace(/ /g, '_');
-			var url = '/products/search/' + searchText + '/' + page + '/' + limit;
+			var url = '/products/search/' + text + '/' + page + '/' + limit;
 
 			$http({
 				method: 'GET',

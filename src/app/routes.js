@@ -59,10 +59,9 @@
 
 	  $stateProvider
 	    .state('search', {
-	      url: '/search/',
+	      url: '/search/{text}',
 	      component: 'search',
 	      params: {
-	      	text: '',
 	      	page: 1,
 	      	limit: 15
 	      },
