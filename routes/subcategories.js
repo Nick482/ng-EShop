@@ -2,7 +2,7 @@ var express = require('express');
 var router = express.Router();
 var subcategoryHandler = require('../handlers/subcategory');
 
-// router.get('/:id/:page', subcategoryHandler.getOne);
+router.get('/:id/:page/:limit', subcategoryHandler.getOne);
 
 // router.get('/', subcategoryHandler.getAll);
 

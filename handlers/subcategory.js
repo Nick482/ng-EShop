@@ -25,9 +25,18 @@ function update(req, res, next){
 	})
 }
 
-// function getOne(req, res, next){
-
-// }
+function getOne(req, res, next){
+	Product.find({subcategory: req.params.id})
+	.skip((req.params.page - 1) * req.params.limit)
+	.limit(+req.params.limit)
+	.populate('category subcategory', 'title')
+	.exec(function(err, products){
+		if(err) {
+			return next(err);
+		}
+		res.status(200).send(products);
+	})
+}
 
 // function getAll(req, res, next){
 
@@ -45,5 +54,6 @@ function remove(req, res, next){
 module.exports = {
 	add: add,
 	update: update,
+	getOne: getOne,
 	remove: remove
 }

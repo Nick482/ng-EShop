@@ -8,6 +8,7 @@
 		return {
 			getCategories: getCategories,
 			getSubcategories: getSubcategories,
+			getSubcategory: getSubcategory,
 			querySearch: querySearch,
 			getProduct: getProduct,
 			getSearchResults: getSearchResults
@@ -40,6 +41,22 @@
 			}).catch(function(err){
 				console.log(err);
 				// TODO Call error service
+			});
+
+			return deferred.promise;
+		}
+
+		function getSubcategory(id, page, limit) {
+			var deferred = $q.defer();
+			var url = '/subcategories/' + id + '/' + page + '/' + limit;
+
+			$http({
+				method: 'GET',
+				url:  url
+			}).then(function(subcategory){
+				deferred.resolve(subcategory.data);
+			}).catch(function(err){
+				console.log(err);
 			});
 
 			return deferred.promise;

@@ -1,0 +1,17 @@
+.subcategory(md-theme='dark-grey')
+  md-card.product(ng-repeat='product in vm.products')
+    md-card-title
+      md-card-title-text
+        span.md-headline {{product.title | uppercase}}
+        span.md-subhead
+          a(ng-click='vm.goToSubcategory(product.subcategory._id)') {{product.subcategory.title | uppercase}}
+          br
+          a(ng-click='vm.goToCategory(product.category._id)') {{product.category.title | uppercase}}
+      md-card-title-media
+        .md-media-md.card-media
+          img(ng-src='{{product.images[0] || "app/common/img/stock.png"}}')
+    md-card-actions.card-buttons(layout='row' layout-align='center center')
+      md-button(ng-click='vm.addToCart(product)')
+        i.material-icons add_shopping_cart
+      md-button(ng-click='vm.viewProduct(product._id)')
+        i.material-icons open_in_browser
