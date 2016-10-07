@@ -26,16 +26,21 @@ function update(req, res, next){
 }
 
 function getOne(req, res, next){
-	Product.find({subcategory: req.params.id})
+	var query = Product.find({subcategory: req.params.id})
 	.skip((req.params.page - 1) * req.params.limit)
 	.limit(+req.params.limit)
-	.populate('category subcategory', 'title')
-	.exec(function(err, products){
+	.populate('category subcategory', 'title');
+	query.exec(function(err, products){
 		if(err) {
-			return next(err);
+			return next(err)
 		}
-		res.status(200).send(products);
-	})
+		query.count(function(err, num){
+			if(err) {
+				return next(err);
+			}
+			res.status(200).send({products: products, pages: Math.ceil(num/req.params.limit)});
+		})
+	});
 }
 
 // function getAll(req, res, next){

@@ -1,15 +1,106 @@
 .container {
-	padding: 0 5px 0;
+	background-color: lightgrey;
+	min-height: 100vh;
+}
+md-toolbar {
+	h3 {
+		color: grey;
+	}
+	background-color: whitesmoke !important;
+	form {
+		margin-left: 50px;
+		width: 60%;
+		md-autocomplete {
+			width: 80%;
+		}
+		input {
+			background-color: lightgrey;
+		}
+	}
+}
+.navigation-item {
+	height: 20px;
+	text-overflow: ellipsis;
+	background: linear-gradient(to bottom, rgb(220, 220, 220) 31%,whitesmoke 100%);
+}
+.sub-menu {
+	background: linear-gradient(to bottom, rgb(220, 220, 220) 31%,whitesmoke 100%);
+}
+.navigation-list {
+	width: 100%;
+}
+.category-card {
+	display: inline-block;
+	img {
+		height: 100px;
+		width: auto;
+	}
+}
+menu {
+	background-color: whitesmoke;
+	padding-left: 0;
+	margin-top: 0;
+	margin-bottom: 0;
+}
+.item-metastat {
+	font-size: 12px;
+	color: grey;
+}
+.search-result, .product {
+	.md-headline {
+		font-size: 16px;
+	}
+	display: inline-block;
+	a {
+		cursor: pointer;
+	}
+	.card-buttons {
+		button {
+			position: relative;
+		}
+		i {
+		    position: absolute;
+		    top: 50%;
+		    left: 50%;
+		    transform: translate(-50%, -50%);
+		}
+	}
 }
 @media screen and (min-width: 960px) {
+	body {
+		padding: 64px 32px 0;
+		background-color: rgb(94, 121, 214);
+	}
 	.container {
-		padding: 0 32px 0;
+		background-color: lightgrey;
+		min-height: 100vh;
+	}
+	md-toolbar {
+		h3 {
+			color: grey;
+		}
+		background-color: whitesmoke !important;
+		form {
+			margin-left: 50px;
+			width: 60%;
+			md-autocomplete {
+				width: 80%;
+			}
+			input {
+				background-color: lightgrey;
+			}
+		}
 	}
 	.navigation-item {
 		height: 20px;
+		text-overflow: ellipsis;
+		background: linear-gradient(to bottom, rgb(220, 220, 220) 31%,whitesmoke 100%);
+	}
+	.sub-menu {
+		background: linear-gradient(to bottom, rgb(220, 220, 220) 31%,whitesmoke 100%);
 	}
 	.navigation-list {
-		width: 25vw;
+		width: 20vw;
 	}
 	.category-card {
 		display: inline-block;
@@ -19,8 +110,10 @@
 		}
 	}
 	menu {
+		background-color: whitesmoke;
 		padding-left: 0;
 		margin-top: 0;
+		margin-bottom: 0;
 	}
 	.item-metastat {
 		font-size: 12px;
@@ -30,7 +123,7 @@
 		.md-headline {
 			font-size: 16px;
 		}
-		min-width: 30%;
+		min-width: 23vw;
 		display: inline-block;
 		a {
 			cursor: pointer;

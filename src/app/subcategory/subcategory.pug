@@ -1,5 +1,5 @@
-.subcategory(md-theme='dark-grey')
-  md-card.product(ng-repeat='product in vm.products')
+.subcategory(layout-xs='column' layout-sm='column')
+  md-card.product(ng-repeat='product in vm.data.products')
     md-card-title
       md-card-title-text
         span.md-headline {{product.title | uppercase}}

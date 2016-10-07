@@ -1,5 +1,5 @@
-.search-results(md-theme='dark-grey')
-  md-card.search-result(ng-repeat='result in vm.results')
+.search-results
+  md-card.search-result(ng-repeat='result in vm.data.results')
     md-card-title
       md-card-title-text
         span.md-headline {{result.title | uppercase}}

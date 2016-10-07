@@ -20,5 +20,4 @@ md-toolbar(md-scroll-shrink='' ng-if='true')
           span.item-metadata
             span.item-metastat {{item.category.title | uppercase}} > 
             span.item-metastat {{item.subcategory.title | uppercase}}
-      md-button(type='button' ng-disabled='!vm.searchText' ng-click='vm.search(vm.searchText)') Search
-
+      md-button.md-primary(type='button' ng-disabled='!vm.searchText' ng-click='vm.search(vm.searchText)') Search

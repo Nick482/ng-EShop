@@ -10,5 +10,7 @@
 		vm.addToCart = routingService.addToCart;
 		vm.goToCategory = routingService.goToCategory;
 		vm.goToSubcategory = routingService.goToSubcategory;
+
+		console.log(vm.data.pages);
 	}
 })();

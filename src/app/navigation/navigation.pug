@@ -1,12 +1,11 @@
 md-list.navigation-list
-  md-list-item.navigation-item.secondary-button-padding(ng-repeat='category in vm.categories' ng-click='vm.goToCategory(category._id)')
+  md-list-item.navigation-item(ng-repeat='category in vm.categories' ng-click='vm.goToCategory(category._id)')
     md-list-item-text
       p {{category.title | uppercase}}
-      md-menu.md-secondary(md-offset='55 0')
+      md-menu.md-secondary(md-offset='73 17')
         md-button.md-icon-button(aria-label='Open menu' ng-click='vm.openMenu($mdOpenMenu, $event)')
           i.material-icons keyboard_arrow_right
-        md-menu-content(width='6')
+        md-menu-content.sub-menu(width='6')
           md-menu-item(ng-repeat='subcategory in category.subcategories')
             md-button(ng-click='vm.goToSubcategory(subcategory._id)')
               span(md-menu-align-target='') {{subcategory.title | uppercase}}
-    md-divider

@@ -3,7 +3,7 @@
 	.module('app')
 	.component('search', {
 		templateUrl: 'app/search/search.html',
-		bindings: {results: '<'},
+		bindings: {data: '<'},
 		controller: 'searchCtrl',
 		controllerAs: 'vm'
 	})

@@ -9,8 +9,11 @@
 			goToCategory: goToCategory,
 			goToSubcategory: goToSubcategory,
 			goToSearch: goToSearch,
-			goToProduct: goToProduct
+			goToProduct: goToProduct,
+			nextPage: nextPage,
+			prevPage: prevPage
 		}
+
 		
 		function goToCategory(dest) {
 			$state.go('category', {categoryID: dest});
@@ -27,6 +30,16 @@
 
 		function goToProduct(id){
 			$state.go('product', {productID: id});
+		}
+
+		function nextPage(){
+			$stateParams.page += 1;
+			$state.reload();
+		}
+		
+		function nextPage(){
+			$stateParams.page -= 1;
+			$state.reload();
 		}
 	}
 })();

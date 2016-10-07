@@ -4,6 +4,7 @@
 	.factory('httpService', httpService);
 	/** @ngInject */
 	function httpService($q, $http) {
+		var pages;
 		
 		return {
 			getCategories: getCategories,
@@ -11,101 +12,67 @@
 			getSubcategory: getSubcategory,
 			querySearch: querySearch,
 			getProduct: getProduct,
-			getSearchResults: getSearchResults
+			getSearchResults: getSearchResults,
+			getPagesCount: getPagesCount
 		}
 
-		function getCategories() {
+		function get(url) {
 			var deferred = $q.defer();
-
-			$http({
-				method: 'GET',
-				url: '/categories/'
-			}).then(function(categories){
-				deferred.resolve(categories.data);
-			}).catch(function(err){
-				console.log(err);
-				// TODO Call error service
-			});
-
-			return deferred.promise;
-		}
-
-		function getSubcategories(id) {
-			var deferred = $q.defer();
-
-			$http({
-				method: 'GET',
-				url: '/categories/' + id
-			}).then(function(category){
-				deferred.resolve(category.data.subcategories);
-			}).catch(function(err){
-				console.log(err);
-				// TODO Call error service
-			});
-
-			return deferred.promise;
-		}
-
-		function getSubcategory(id, page, limit) {
-			var deferred = $q.defer();
-			var url = '/subcategories/' + id + '/' + page + '/' + limit;
-
-			$http({
-				method: 'GET',
-				url:  url
-			}).then(function(subcategory){
-				deferred.resolve(subcategory.data);
-			}).catch(function(err){
-				console.log(err);
-			});
-
-			return deferred.promise;
-		}
-
-		function querySearch(text) {
-			var deferred = $q.defer();
-
-			$http({
-				method: 'GET',
-				url: '/autocomplete/' + text
-			}).then(function(res){
-				deferred.resolve(res.data);
-			}).catch(function(err){
-				console.log(err);
-			});
-
-			return deferred.promise;
-		}
-
-		function getProduct(id){
-			var deferred = $q.defer();
-
-			$http({
-				method: 'GET',
-				url: '/products/' + id
-			}).then(function(product){
-				deferred.resolve(product.data);
-			}).catch(function(err){
-				console.log(err);
-			});
-
-			return deferred.promise;
-		}
-
-		function getSearchResults(text, page, limit){
-			var deferred = $q.defer();
-			var url = '/products/search/' + text + '/' + page + '/' + limit;
 
 			$http({
 				method: 'GET',
 				url: url
-			}).then(function(results){
-				deferred.resolve(results.data);
+			}).then(function(res){
+				if(res.data.pages){
+					pages = res.data.pages;
+				}
+				deferred.resolve(res.data);
 			}).catch(function(err){
 				console.log(err);
+				// TODO Call error service
 			});
 
 			return deferred.promise;
+		}
+
+		function getCategories() {
+			var url = '/categories/';
+
+			return get(url);
+		}
+
+		function getSubcategories(id) {
+			var url = '/categories/' + id
+
+			return get(url);
+		}
+
+		function getSubcategory(id, page, limit) {
+			var url = '/subcategories/' + id + '/' + page + '/' + limit;
+
+			return get(url);
+		}
+
+		function querySearch(text) {
+			var url = '/autocomplete/' + text;
+			
+			return get(url);
+		}
+
+		function getProduct(id){
+			var url = '/products/' + id;
+
+			return get(url);
+		}
+
+		function getSearchResults(text, page, limit){
+			var url = '/products/search/' + text + '/' + page + '/' + limit;
+
+			return get(url);
+		}
+		
+		function getPagesCount() {
+			return pages;
 		}
 	}
 })();

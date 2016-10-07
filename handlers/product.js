@@ -29,12 +29,15 @@ function update(req, res, next) {
 
 function get(req, res, next) {
 	var params = req.params;
+	var query = Product.find({subcategory: params.id}).skip((params.page - 1) * params.limit).limit(+params.limit);
 
-	Product.find({subcategory: params.id}).skip((params.page - 1) * params.limit).limit(+params.limit).exec(function(err, products){
+	query.exec(function(err, products){
 		if(err){
 			return next(err);
 		}
-		res.status(200).send(products);
+		query.count(function(err, num){
+			res.status(200).send({products: products, pages: Math.ceil(num/params.limit)});
+		});
 	});
 }
 
@@ -58,15 +61,18 @@ function remove(req, res, next) {
 
 function search(req, res, next){
 	req.params.text = req.params.text.replace(/_/, ' ');
-	Product.find({title: new RegExp(req.params.text, "i")})
-	.skip((req.params.page - 1) * req.params.limit)
-	.limit(+req.params.limit)
-	.populate('category subcategory', 'title')
-	.exec(function(err, products) {
+	var query = Product.find({title: new RegExp(req.params.text, "i")})
+		.skip((req.params.page - 1) * req.params.limit)
+		.limit(+req.params.limit)
+		.populate('category subcategory', 'title');
+		
+	query.exec(function(err, products) {
   		if(err){
     		return next(err);
   		}
-  		res.status(200).send(products);
+  		query.count(function(err, num){
+  			res.status(200).send({results:products, pages: Math.ceil(num/req.params.limit)});
+  		})
 	});
 }
 

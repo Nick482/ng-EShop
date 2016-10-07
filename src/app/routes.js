@@ -56,7 +56,7 @@
 		  	limit: 15
 		  },
 		  resolve: {
-		  	products: function(httpService, $stateParams) {
+		  	data: function(httpService, $stateParams) {
 		  		return httpService.getSubcategory($stateParams.subcategoryID, $stateParams.page, $stateParams.limit);
 		  	}
 		  }
@@ -71,7 +71,7 @@
 		  	limit: 15
 		  },
 		  resolve: {
-		  	results: function(httpService, $stateParams){
+		  	data: function(httpService, $stateParams){
 		     	return httpService.getSearchResults($stateParams.text, $stateParams.page, $stateParams.limit)
 				}
 		  }
